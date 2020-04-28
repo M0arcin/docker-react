@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t m0arcin/docker-react  -f Dockerfile.dev .
+
+script:
+  - docker run m0arcin/docker-react npm run test -- --coverage
